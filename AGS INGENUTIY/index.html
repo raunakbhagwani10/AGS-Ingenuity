@@ -1,0 +1,793 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="mqet5W4Ivq-v5zRa1wPymPW4PToQ02Kz_OrRFLUdCNI" />
+    <title>AGS Ingenuity</title>
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/favicon-192x192.png" sizes="192x192">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Song+Myung" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.isonscreen.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script>
+        $(document).ready(function() {
+            var i = 0;
+            var rouletteAnimation = setInterval(function() {
+                switch (i) {
+                    case 5:
+                        i = 0;
+                        $(".roulette ul li:nth-child(5)").addClass("fadeOutUp").removeClass("fadeInUp");
+                    default:
+                        $(".roulette ul li:nth-child(" + i + ")").addClass("fadeOutUp").removeClass("fadeInUp");
+                        $(".roulette ul li:nth-child(" + (i + 1) + ")").addClass("fadeInUp").removeClass("fadeOutUp");
+                        i++;
+                        break;
+                }
+            }, 2000);
+            $(".row.partners").children(".col-md-4").children("img").hover(function() {
+                $(this).addClass("shake").addClass("animated");
+            }, function() {
+                $(this).removeClass("shake").removeClass("animated");
+            });
+            if ($(window).scrollTop() == 0) {
+                $('.navbar').css({
+                    backgroundColor: 'rgba(0, 0, 0, 0.0)'
+                });
+                $(".navbar-brand").css({
+                    'opacity': '1',
+                    '-webkit-transform': 'none',
+                    'transform': 'none'
+                });
+                $(".navbar-brand.horizontal").css({
+                    'opacity': '0',
+                    '-webkit-transform': 'translate3d(0, -100%, 0)',
+                    'transform': 'translate3d(0, -100%, 0)'
+                });
+            } else {
+                $('.navbar').css({
+                    backgroundColor: 'rgba(64, 64, 64, 1)'
+                });
+                $(".navbar-brand").css({
+                    'opacity': '0',
+                    '-webkit-transform': 'translate3d(0, -100%, 0)',
+                    'transform': 'translate3d(0, -100%, 0)'
+                });
+                $(".navbar-brand.horizontal").css({
+                    'opacity': '1',
+                    '-webkit-transform': 'none',
+                    'transform': 'none'
+                });
+            }
+            $(window).scroll(function() {
+                if ($(window).scrollTop() == 0) {
+                    $('.navbar').css({
+                        backgroundColor: 'rgba(0, 0, 0, 0.0)'
+                    });
+                    $(".navbar-brand").removeClass("fadeOutUp").addClass("fadeInDown").addClass("animated");
+                    $(".navbar-brand.horizontal").removeClass("fadeInDown").addClass("fadeOutUp").addClass("animated");
+                } else {
+                    $('.navbar').css({
+                        backgroundColor: 'rgba(64, 64, 64, 1)'
+                    });
+                    $(".navbar-brand").removeClass("fadeInDown").addClass("fadeOutUp").addClass("animated");
+                    $(".navbar-brand.horizontal").removeClass("fadeOutUp").addClass("fadeInDown").addClass("animated");
+                }
+                if ($(window).scrollTop() > 250) {
+                    $('.row.solutions').addClass('fadeInUp').addClass('animated');
+                }
+            });
+            $("#banner.owl-carousel").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                items: 1,
+                itemsDesktop: false,
+                itemsDesktopSmall: false,
+                itemsTablet: false,
+                itemsMobile: false,
+                dots: false
+            });
+            $('#partner.owl-carousel').owlCarousel({
+                loop: false,
+                margin: 100,
+                nav: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            });
+            $(".ring").hover(function() {
+                $(this).children('.ring-outer').children('.ring-icon').addClass('tada animated');
+            }, function() {
+                $(this).children('.ring-outer').children('.ring-icon').removeClass('tada animated');
+            });
+        });
+    </script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        body,
+        html {
+            font-family: 'Raleway', sans-serif;
+            position: relative;
+        }
+        .top-gradient {
+            width: 100%;
+            height: 153px;
+            background: linear-gradient(rgba(0, 0, 0, 0.49), rgba(255, 255, 255, 0));
+            position: absolute;
+            z-index: 99;
+        }
+        #banner-holder {
+            position: relative;
+        }
+        .banner-image {
+            background-image: url(img/background.png);
+            height: 500px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        img.navbar-brand {
+            height: 100px;
+            width: 200px;
+            position: absolute;
+        }
+        img.navbar-brand.horizontal {
+            height: 50px;
+            width: 205px;
+            margin-left: 0px !important;
+            padding: 0px;
+        }
+        .navbar {
+            transition: background-color 0.5s ease-out;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+        }
+        .navbar-collapse.collapse.in,
+        .navbar-collapse.collapsing {
+            border: none;
+            box-shadow: none;
+        }
+        .navbar-inverse .navbar-nav>li:after {
+            display: block;
+            content: '';
+            border-bottom: solid 3px #03A9F4;
+            transform: scaleX(0);
+            transition: transform 250ms ease-in-out;
+        }
+        .navbar-inverse .navbar-nav>li:hover:after {
+            transform: scaleX(1);
+        }
+        .navbar-inverse .navbar-nav>li.active:after {
+            transform: scaleX(1);
+        }
+        .navbar-inverse .navbar-nav>li.active a,
+        .navbar-inverse .navbar-nav>li.active a:hover {
+            background-color: transparent;
+        }
+        .navbar-inverse .navbar-nav>li>a,
+        .navbar-inverse .navbar-brand {
+            color: #e4e4e4;
+        }
+        img.ring-border {
+            width: 130px;
+            height: 130px;
+        }
+        img.ring-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+        div.ring-outer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        div.ring-outer+span {
+            color: #757575;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            font-variant: small-caps;
+            font-size: 18px;
+        }
+        .ring:hover div.ring-outer+span {
+            background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h4.solutions {
+            background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 35px;
+            margin-bottom: 30px;
+        }
+        h4.partners {
+            background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 35px;
+            margin-bottom: 50px;
+        }
+        .roulette {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            margin-left: 100px;
+        }
+        .roulette ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+            left: 315px;
+			
+            white-space: nowrap;
+        }
+        .roulette ul li,
+        .roulette span {
+            opacity: 0;
+            position: absolute;
+            font-size: 50px;
+            font-weight: bold;
+			font-family: 'Song Myung', serif;
+        }
+        .roulette ul li {
+            color: #F57C00;
+        }
+        .roulette span {
+            opacity: 1;
+            color: #1565C0;
+            width: 305px;
+        }
+        #map {
+            height: 300px;
+            width: 100%;
+        }
+        .row.solutions {
+            opacity: 0;
+        }
+        #our-products {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            padding-right: 50px;
+            padding-left: 50px;
+            background-color: #607d8b;
+        }
+        #contact {
+            padding-bottom: 50px;
+            background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+            color: white;
+        }
+        #contact h4.title {
+            font-size: 35px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            color: white;
+        }
+        #about_us {
+            background-image: url(img/iphone-1852901.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        #about_us div {
+            display: inline-block;
+        }
+        #about_us div h1 {
+            font-family: 'Satisfy', cursive;
+            margin-bottom: 30px;
+        }
+        #about_us div span {
+            margin-left: 50px;
+            margin-right: 50px;
+            display: block;
+            font-size: 20px;
+        }
+        #about_us div span:before {
+            content: url('img/quote.svg');
+        }
+        #about_us div span:after {
+            content: url('img/quote_2.svg');
+            position: absolute;
+        }
+        #partners {
+            margin: 0px;
+            padding-top: 50px;
+            padding-bottom: 80px;
+        }
+        @media (max-width: 970px) {
+            img.navbar-brand.horizontal {
+                margin-left: 15px !important;
+            }
+            .banner-image {
+                height: 450px;
+            }
+            .navbar-header {
+                float: none;
+            }
+            .navbar-left,
+            .navbar-right {
+                float: none !important;
+            }
+            .navbar-toggle {
+                display: none;
+            }
+            .navbar-collapse {
+                border-top: 1px solid transparent;
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+            .navbar-fixed-top {
+                top: 0;
+                border-width: 0 0 1px;
+            }
+            .navbar-collapse.collapse {
+                display: none!important;
+            }
+            .navbar-nav {
+                float: none!important;
+                margin-top: 7.5px;
+            }
+            .navbar-nav>li {
+                float: none;
+            }
+            .navbar-nav>li>a {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            .collapse.in {
+                display: block !important;
+            }
+            #emailId {
+                margin-bottom: 20px;
+            }
+            .roulette {
+                margin-left: 50px;
+            }
+            .roulette span {
+                width: 250px;
+            }
+            .roulette span,
+            .roulette ul li {
+                font-size: 40px;
+            }
+            .roulette ul {
+                left: 260px;
+            }
+        }
+        @media (min-width: 768px) {
+            #partners .col-sm-12,
+            #partners .col-sm-6 {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            #partners {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+            #partners h4 {
+                margin-bottom: 40px;
+            }
+        }
+        @media (max-width: 768px) {
+            img.navbar-brand {
+                height: 90px;
+                width: 180px;
+            }
+            .banner-image {
+                height: 400px;
+            }
+            #partners {
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+            #partners h4 {
+                margin-bottom: 20px;
+            }
+            #partners .col-sm-12,
+            #partners .col-sm-6 {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            #contact .container {
+                max-width: 400px;
+            }
+            .roulette {
+                margin-left: 35px;
+            }
+            .roulette ul {
+                left: 0px;
+                margin-top: 45px;
+            }
+            #contact {
+                padding-bottom: 80px;
+            }
+            .address table {
+                margin-top: 60px;
+            }
+        }
+        @media (max-width: 500px) {
+            img.navbar-brand {
+                height: 80px;
+                width: 150px;
+            }
+            .banner-image {
+                height: 350px;
+            }
+            .roulette {
+                margin-left: 30px;
+            }
+            .roulette span,
+            .roulette ul li {
+                font-size: 30px;
+				font-family: 'Song Myung', serif;
+            }
+            .roulette ul {
+                margin-top: 40px;
+            }
+        }
+        .g-recaptcha {
+            margin: 15px auto !important;
+            width: auto !important;
+            height: auto !important;
+            text-align: -webkit-center;
+            text-align: -moz-center;
+            text-align: -o-center;
+            text-align: -ms-center;
+        }
+        .g-recaptcha div {
+            height: inherit !important;
+            width: inherit !important;
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+        }
+    </style>
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92571070-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-92571070-1');
+	</script>
+
+</head>
+
+<body id="home">
+    <nav class="navbar navbar-inverse navbar-fixed-top ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </button>
+                <a href="#home"><img class="navbar-brand" src="img/AGS_logo_concept_1_light.svg">
+                </a>
+                <a href="#home"><img class="navbar-brand horizontal" src="img/AGS_logo_concept_1_light_horizontal.svg">
+                </a>
+            </div>
+            <div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav pull-right">
+                        <li><a href="#home">Home</a>
+                        </li>
+                        <li><a href="#solutions">Solutions & Services</a>
+                        </li>
+                        <li><a href="#partners">Partners</a>
+                        </li>
+                        <li><a href="#about_us">About us</a>
+                        </li>
+                        <li><a href="#contact">Let's Talk Business</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="top-gradient"></div>
+        <div id="banner-holder">
+            <div class="roulette"><span>We deal with</span>
+                <ul>
+                    <li class="animated">Indoor Navigation</li>
+                    <li class="animated">Commercial Hubs</li>
+                    <li class="animated">Health Care</li>
+                    <li class="animated">Security</li>
+                    <li class="animated">Tracking</li>
+                </ul>
+            </div>
+            <div class="banner-image"></div>
+        </div>
+    </div>
+    <div id="solutions" style="padding-top: 80px;padding-bottom: 100px; background-color: #424242">
+        <h4 class="text-center solutions">Solutions & Services</h4>
+        <div class="row solutions" style="padding-top: 40px; margin:0px;">
+            <div class="col-sm-2 col-sm-offset-1 text-center ring">
+                <div class="ring-outer"><img class="ring-border" src="img/ring.svg"><img class="ring-icon" src="img/ic_location_on_black_24px.svg">
+                </div><span>Indoor Navigation</span>
+            </div>
+            <div class="col-sm-2 text-center ring">
+                <div class="ring-outer"><img class="ring-border" src="img/ring.svg"><img class="ring-icon" src="img/ic_shopping_basket_black_24px.svg">
+                </div><span>Commercial Hubs</span>
+            </div>
+            <div class="col-sm-2 text-center ring">
+                <div class="ring-outer"><img class="ring-border" src="img/ring.svg"><img class="ring-icon" src="img/ic_local_hotel_black_24px.svg">
+                </div><span>Health Care</span>
+            </div>
+            <div class="col-sm-2 text-center ring">
+                <div class="ring-outer"><img class="ring-border" src="img/ring.svg"><img class="ring-icon" src="img/ic_security_black_24px.svg">
+                </div><span>Security</span>
+            </div>
+            <div class="col-sm-2 text-center ring">
+                <div class="ring-outer"><img class="ring-border" src="img/ring.svg"><img class="ring-icon" src="img/ic_my_location_black_24px.svg">
+                </div><span>Tracking</span>
+            </div>
+        </div>
+    </div>
+    <div id="partners" class="row partners">
+        <h4 class="text-center partners">Our Partners</h4>
+        <div class="col-md-4 col-sm-6 col-xs-12 text-center"><img src="img/proximiio.png" style="width: 200px;">
+        </div>
+		<div class="col-md-4 col-sm-12 col-xs-12 text-center"><img src="img/sygic.png" style="width: 200px;">
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 text-center"><img src="img/micello.png" style="width: 200px;">
+        </div>
+    </div>
+    <div id="about_us">
+        <div>
+            <h1>About Us</h1><span><b style="color:#42A5F5">Dheyam, Nabha Sparsham! </b>Our aim is to touch the Sky. We at <b style="color:#42A5F5">AGS Ingenuity, </b><b style="color:#4CAF50">A</b>ims for making lives simpler, easier through digitalization and being catalyst to Digital India project. We have our <b style="color:#f44336">G</b>lobal partners which aims at faster progress and reminds basic concept of <b>Vasudaiva Kutumbakam - 'We are one Global Family'</b>.<br>The <b style="color:#FFCA28">S</b>olutions and services we provide enhances the customer satisfaction, maximize productivity & efficiency in business processes. Hence we are a team of Ingenuity that makes use of innovative implementation with trustworthiness towards our clients.</span>
+        </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+            <h4 class="text-center title">Let's talk business</h4>
+            <div class="row">
+                <form id="contact-form" class="col-sm-6 email-form" method="GET">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="emailId" type="text" name="from" placeholder="Email Id"></input>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="subject" type="text" name="subject" placeholder="Subject"></input>
+                        </div>
+                        <div class="col-md-12" style="margin-top: 20px;margin-bottom: 15px;">
+                            <textarea placeholder="Message" rows="3" name="message"></textarea>
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="6Le76xMUAAAAAGr53NzCR0GFaJF00kKnyUB2_H8D"></div>
+                        <button id="send" type="button" class="text-center" onclick="sendMessage();">Send</button>
+                    </div>
+                </form>
+                <script>
+                    function sendMessage() {
+                        var fields = $('#contact-form').serializeArray();
+                        if (!fields[0].value.trim() || !fields[1].value.trim() || !fields[2].value.trim()) {
+                            alert("Please fill in all the feilds.");
+                        } else if (!fields[3].value.trim()) {
+                            alert("Please click I am not a robot.");
+                        } else {
+                            $.ajax({
+                                type: "POST",
+                                url: 'http://www.agsingenuity.com/mail.php',
+                                data: $('#contact-form').serialize(),
+                                dataType: "json",
+                                cache: false,
+                                success: function(data) {
+                                    if (data == "success") {
+                                        alert("Message sent");
+                                    } else {
+                                        alert("Some error occurred");
+                                    }
+                                    $("#contact-form")[0].reset();
+                                },
+                                error: function(msg) {
+                                    alert(msg.responseText);
+                                }
+                            });
+                        }
+                    }
+                </script>
+                <div class="col-sm-6 address">
+                    <table>
+                        <tr>
+                            <td><i class="material-icons">pin_drop</i>
+                            </td>
+                            <td style="padding-bottom: 20px;"><span style="font-weight: bold">Registered Office</span>
+                                <br><span style="display: block;line-height: 1;font-size: 18px;margin: 5px 0px 30px 0px;">10, Shivnum CHSL, Aziz Baug,<br>R.C. Marg,<br>Chembur,<br>Mumbai - 400074</span>
+                                <br style="display: block;line-height: 22px;margin: 10px 0;content:''"><span style="font-weight: bold">Workstation</span>
+                                <br><span style="display: block;line-height: 1;font-size: 18px;margin: 5px 0px;">Plot No.1,<br>Hotel Bahri Residency Premises,<br>Sion-Trombay Road,<br>Chembur (E),<br>Mumbai - 400071</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="material-icons">mail_outline</i>
+                            </td>
+                            <td style="padding-bottom: 20px;">contact@agsingenuity.com</td>
+                        </tr>
+                    </table>
+                    <div style="margin: 10px 0px 0px 5px;"><a href="https://www.facebook.com/agsingenuity" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a><a href="https://twitter.com/agsingenuity" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a><a href="https://www.linkedin.com/company/ags-ingenuity" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a><a href="https://github.com/AGSIngenuity" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style type="text/css">
+            .address table tr td {
+                font-size: 20px;
+                vertical-align: top;
+            }
+            .address table tr td i.material-icons {
+                line-height: 28px;
+                margin-right: 10px;
+            }
+            .address a i.fa {
+                font-size: 24px;
+                margin: 4px;
+                cursor: pointer;
+                color: white;
+            }
+            .address a i.fa.fa-facebook {
+                padding: 10px 16px;
+                background-color: #3d5b99;
+            }
+            .address a i.fa.fa-twitter {
+                padding: 10px 11px;
+                background-color: #00aced;
+            }
+            .address a i.fa.fa-google-plus {
+                padding: 10px 8px;
+                background-color: #d34836;
+            }
+            .address a i.fa.fa-linkedin {
+                padding: 10px 13px;
+                background-color: #0073a4;
+            }
+            .address a i.fa.fa-github {
+                padding: 9px 12px;
+                font-size: 26px;
+                background-color: #333;
+            }
+            .address a i.fa.fa-instagram {
+                padding: 9px 12px;
+                font-size: 26px;
+                background-color: #e1306c;
+            }
+            .email-form {
+                margin-top: 10px;
+            }
+            .email-form div.row div {
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+            .email-form div.row div input,
+            .email-form div.row div textarea {
+                width: 100%;
+                border: none;
+                padding: 5px 5px 5px 15px;
+                color: #37474F;
+            }
+            #send {
+                margin: 10px auto 0px auto;
+                display: block;
+                padding: 8px 33px;
+                border: 2px solid white;
+                color: white;
+                background: transparent;
+                border-radius: 20px;
+            }
+            #send:focus {
+                border: none;
+            }
+        </style>
+    </div>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            var uluru = {
+                lat: 19.051596,
+                lng: 72.901145
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: uluru,
+                styles: [{
+                    "featureType": "all",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{
+                        "color": "#736c68"
+                    }]
+                }, {
+                    "featureType": "landscape.man_made",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#e7e6e5"
+                    }]
+                }, {
+                    "featureType": "landscape.natural",
+                    "elementType": "all",
+                    "stylers": [{
+                        "visibility": "on"
+                    }, {
+                        "color": "#d4e4d3"
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "visibility": "on"
+                    }, {
+                        "color": "#f5f5f5"
+                    }]
+                }, {
+                    "featureType": "poi.park",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#d4e4d3"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#f5f5f5"
+                    }]
+                }, {
+                    "featureType": "road",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{
+                        "color": "#e7e6e5"
+                    }, {
+                        "gamma": "0.65"
+                    }, {
+                        "lightness": "0"
+                    }]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "labels.text",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }, {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [{
+                        "color": "#aad5df"
+                    }]
+                }]
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnNw8kok-iRwo-t4QMMErVDLxc7qsGYWk&callback=initMap">
+    </script>
+</body>
+
+</html>
